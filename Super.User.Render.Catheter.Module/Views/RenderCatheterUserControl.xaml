@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="Super.User.Render.Catheter.Module.Views.RenderCatheterUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Super.User.Render.Catheter.Module.Views"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+            xmlns:infUtility="clr-namespace:Super.User.Infrastructure.Utilities;assembly=Super.User.Infrastructure"
+            xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             mc:Ignorable="d" 
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True" 
+             HorizontalAlignment="Stretch"
+             Loaded="RenderCatheterUserControl_Loaded"
+             VerticalAlignment="Stretch">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command= "{Binding LoadedCommand}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Grid >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+            <ColumnDefinition  Width="10*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        
+        <ContentControl Name="ContentControlRegionRenderCatheterOne" 
+                        Grid.Row="0"
+                        prism:RegionManager.RegionName="{x:Static infUtility:RegionNames.RegionRenderCatheterOne}" 
+                        HorizontalAlignment="Stretch" 
+                        VerticalAlignment="Stretch"
+                        Background="BlueViolet"
+                                
+                       />
+
+        <ContentControl Name="ContentControlRegionRenderCatheterTwo" 
+                        Grid.Row="2"
+                        prism:RegionManager.RegionName="{x:Static infUtility:RegionNames.RegionRenderCatheterTwo}" 
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                         Background="Bisque"
+                               
+                       />
+
+
+
+        <GridSplitter HorizontalAlignment="Center"   
+                      VerticalAlignment="Stretch"   
+                      Grid.Column="1"   
+                      Width="5" Background="Silver">
+        </GridSplitter>
+    </Grid>
+
+</UserControl>
