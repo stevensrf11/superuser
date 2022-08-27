@@ -1,0 +1,56 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Page Remove="SuperUserApp.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ApplicationDefinition Include="SuperUserApp.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+  </ItemGroup>
+
+	<ItemGroup>
+		<Content Include="appsettings.Development.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="appsettings.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="appsettings.Production.json">
+			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+	
+ <ItemGroup>
+		  <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="6.0.0" />
+		  <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="6.0.0" />
+		  <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.39" />
+		  <PackageReference Include="Prism.Core" Version="8.1.97" />
+	  <PackageReference Include="Prism.DryIoc" Version="8.1.97" />
+	  <PackageReference Include="Prism.Wpf" Version="8.1.97" />
+
+
+ </ItemGroup>	
+	
+  <ItemGroup>
+    <Folder Include="Properties\" />
+	<Folder Include="ViewModels\" />
+
+  </ItemGroup>	
+	
+  <ItemGroup>
+    <ProjectReference Include="..\Super.User.Infrastructure\Super.User.Infrastructure.csproj" />
+    <ProjectReference Include="..\Super.User.Logger\Super.User.Logger.csproj" />
+    <ProjectReference Include="..\Super.User.Module\Super.User.Module.csproj" />
+    <ProjectReference Include="..\Super.User.Resources\Super.User.Resources.csproj" />
+  </ItemGroup>
+
+</Project>

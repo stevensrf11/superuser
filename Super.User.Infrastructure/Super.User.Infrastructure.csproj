@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+	<ItemGroup>
+		
+		<PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.37" />
+
+		<PackageReference Include="Prism.Wpf" Version="8.1.97" />
+
+	</ItemGroup>
+  <ItemGroup>
+    <Folder Include="Prism\Commands\" />
+    <Folder Include="Themes\Navigation\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Super.User.Interfaces\Super.User.Interfaces.csproj" />
+    <ProjectReference Include="..\Super.User.Models\Super.User.Models.csproj" />
+    <ProjectReference Include="..\Super.User.Resources\Super.User.Resources.csproj" />
+  </ItemGroup>
+
+</Project>
