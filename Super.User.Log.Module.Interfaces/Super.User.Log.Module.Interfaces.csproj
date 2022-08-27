@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>Super.User.Log.Module.Interfaces_</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+		<Exec Command="xcopy &quot;$(TargetDir)Super.User.Log.Module.Interfaces.dll&quot; &quot;$(SolutionDir)Super.User.App\bin\$(ConfigurationName)\net6.0-windows\DirectoryModules\&quot; /Y" />
+	</Target>
+
+</Project>

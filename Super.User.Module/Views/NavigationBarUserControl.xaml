@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="Super.User.Module.Views.NavigationBarUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"                                                       
+           xmlns:infEntAppCommands="clr-namespace:Super.User.Infrastructure.Prism.Commands;assembly=Super.User.Infrastructure"
+             xmlns:infEntAppPrism="clr-namespace:Super.User.Infrastructure.Prism;assembly=Super.User.Infrastructure"
+
+              xmlns:prism="http://prismlibrary.com/" 
+                prism:ViewModelLocator.AutoWireViewModel="True"
+             xmlns:local="clr-namespace:Super.User.Module.Views"
+             mc:Ignorable="d" 
+            
+          Background="#00010101"
+             HorizontalAlignment="Stretch"
+             VerticalAlignment="Stretch"
+            >
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Super.User.Infrastructure;component/Themes/Navigation/Navigation.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+
+         </ResourceDictionary>
+
+    
+    </UserControl.Resources>
+    <Grid>
+
+        <ListBox 
+        Name="m_listBox"
+        
+            ItemsSource="{Binding NavigationButtons}"   
+             Style="{StaticResource NavigationListBox}"
+           ItemTemplate="{StaticResource NavigationListBoxItemTemplate}"
+            infEntAppPrism:PrismNavigationSelected.Command="{x:Static infEntAppCommands:CompositeCommands.NavigateCommand}"
+            infEntAppPrism:PrismNavigationSelected.CommandParameter="Binding NavigationUrl}"
+            IsSynchronizedWithCurrentItem="False"
+            SelectedIndex="-1"
+     
+        >
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel IsItemsHost="True" Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+           
+           
+        </ListBox>
+
+
+    </Grid>
+</UserControl>
